@@ -1,0 +1,29 @@
+.vertical {
+	padding-top: 150px;
+	padding-bottom: 150px;
+	
+
+}
+
+.body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: grey;
+    text-align: center;
+} 

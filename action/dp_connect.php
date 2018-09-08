@@ -2,16 +2,14 @@
 	$localhost = "127.0.0.1";
 	$username = "root";
 	$password ="";
-	$dbname="stock";
+	$dbname="sale_database";
 //db connection
 	$connect = new mysqli($localhost,$username,$password,$dbname);
 
 	//check
 	if($connect -> connect_error){
-		die("Connection Failed: " .$connect -> connect_error);
+		die("".$connect -> connect_error);
 
 	}
-	else{
-		echo "Succesfullly connected";
-	}
+	
 ?>

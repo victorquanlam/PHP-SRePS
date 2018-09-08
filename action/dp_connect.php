@@ -2,7 +2,7 @@
 	$localhost = "127.0.0.1";
 	$username = "root";
 	$password ="";
-	$dbname="sale_database";
+	$dbname="sale_record";
 //db connection
 	$connect = new mysqli($localhost,$username,$password,$dbname);
 

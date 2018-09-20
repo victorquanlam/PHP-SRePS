@@ -16,12 +16,7 @@ echo"
 while($row = $result->fetch_assoc())
 {
     $monthly_total = $monthly_total + $row["total_amount"];
-    echo"
-    <tr>
-        <td>".."</td>
-        <td>".."</td>
-        <td>".."</td>
-    </tr>";
+
 }
 echo"</table>";
 ?>

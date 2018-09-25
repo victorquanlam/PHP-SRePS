@@ -14,7 +14,7 @@ $row = $result->fetch_assoc();
 
 <body>
   <div class ="edit_sale_box">
-  <h2><span class="fontawesome-lock"></span>Edit Sale</h2>
+  <h2><span ></span>Edit Sale</h2>
   <form method="post"  action="sales.php">
     <fieldset>
     <div>

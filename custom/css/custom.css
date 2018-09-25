@@ -90,6 +90,10 @@ input[readonly]{
 	font-size: 16px;
 }
 
+.right_align_button{
+	float: right;
+}
+
 .button_primary{
 	background-color: #33cc77;
 	color: #fff;

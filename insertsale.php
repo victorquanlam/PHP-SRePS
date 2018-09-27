@@ -10,7 +10,7 @@ $sql="INSERT INTO sale (sale_id, sale_date, sale_name, product_price, total_amou
 
 if ($connect->query($sql) === TRUE) {
     echo "New sale added successfully";
-    echo "<p><a href='add_sales.php'><button>Return to Add Sale Page</button></a></p>";
+    echo "<p><a href='sales.php'><button>Return to Sales Page</button></a></p>";
 } 
 else {
     echo "Error: " . $sql . "<br>" . $connect->error;

@@ -3,7 +3,7 @@
     require_once("includes/header.php");
 ?>
 
-<form id="addsalesform" method="post" action="insertsale.php" novalidate="novalidate">
+<form id="addsalesform" method="post" action="insertsale.php" validate="validate">
     <fieldset id="saleinfo">
         <legend>Add Sale: </legend>
         <p><label for="saleid">Sale ID: </label>

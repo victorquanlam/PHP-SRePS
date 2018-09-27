@@ -25,18 +25,7 @@ require_once("includes/header.php");
       <label for="price" class="edit_label">Price:</label>
       <input type="text" class="edit_input" name="price" id="price">
     </div>
-    <div>
-      <label for="total" class="edit_label">Total:</label>
-      <input type="text" class="edit_input" name="total" id="total">
-    </div>
-    <div>
-    <label for="order_status" class="edit_label">Payment Type:</label>
-      <select name = "order_status">
-        <option value="Pending" selected = "selected" >Pending</option>
-        <option value="Processing">Processing</option>
-        <option value="Completed">Completed</option>
-      </select>
-    </div>
+    
     <div class="edit_button">
       <input type="submit" class="button_primary" id="submit" value="Submit" />
   	  <input type="reset" class="button_primary"  id="cancel" value="Cancel" />

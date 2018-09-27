@@ -14,7 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 $sql = "SELECT * FROM `sale`";
 $result = $connect->query($sql);
 echo "<h2>Sales Records</h2><hr \>";
-echo '<a href="monthly_sales.php">Monthly Sales Report</a>';
+echo '<a href="add_sales.php"><button>Add Sales</button></a>';
+echo '<a href="monthly_sales.php"><button>Monthly Sales Report</button></a>';
 echo"<table border='1em' class='table table-bordered table-striped table-hover'>";
 echo"
 <tr>
@@ -45,8 +46,6 @@ while($row = $result->fetch_assoc())
 }
 echo"</table>";
 ?>
-
-<!--put your content hereeeeeeeeeeeeeee-->
 
 <?php
 

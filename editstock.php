@@ -34,18 +34,6 @@ $row = $result->fetch_assoc();
       <label for="price" class="edit_label">Price:</label>
       <input type="text" class="edit_input" value = <?php echo $row["price"]; ?> name="price" id="price">
     </div>
-    <div>
-      <label for="total" class="edit_label">Total:</label>
-      <input type="text" class="edit_input" value = <?php echo $row["total"]; ?> name="total" id="total">
-    </div>
-    <div>
-      <label for="orders_stock_status" class="edit_label">Payment Type:</label>
-      <select name = "orders_stock_status">
-        <option value="Pending" <?php if($row["orders_stock_status"]=="Pending") echo"selected='selected'"?>>Pending</option>
-        <option value="Processing"<?php if($row["orders_stock_status"]=="Processing") echo"selected='selected'"?>>Processing</option>
-        <option value="Completed"<?php if($row["orders_stock_status"]=="Completed") echo"selected='selected'"?>>Completed</option>
-      </select>
-    </div>
     <div class="edit_button">
       <input type="submit" class="button_primary" id="submit" value="Submit" />
   	  <input type="reset" class="button_primary"  id="cancel" value="Cancel" />

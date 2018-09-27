@@ -76,14 +76,14 @@ CREATE TABLE `product` (
 --
 
 CREATE TABLE `sale` (
-  `sale_id` int(11) NOT NULL,
+  `sale_id` int(255) NOT NULL,
   `sale_date` date NOT NULL,
   `sale_name` varchar(255) NOT NULL,
-  `total_amount` varchar(255) NOT NULL,
-  `discount` varchar(255) NOT NULL,
+  `total_amount` int(255) NOT NULL,
+  `discount` int(255) NOT NULL,
   `payment_type` varchar(255) NOT NULL,
   `payment_status` varchar(255) NOT NULL,
-  `product_price` varchar(255) NOT NULL
+  `product_price` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -91,8 +91,8 @@ CREATE TABLE `sale` (
 --
 
 INSERT INTO `sale` (`sale_id`, `sale_date`, `sale_name`, `total_amount`, `discount`, `payment_type`, `payment_status`, `product_price`) VALUES
-(1, '2018-09-01', 'test1', '13', '11', 'Credit Card', 'Completed', '23232'),
-(2, '2018-09-02', 'test2', '2', '0', 'Credit Card', 'Waiting', '34');
+(100001, '2018-09-27', 'Panadol', 1, 0, 'cash', 'paid', 4),
+(100002, '2018-09-27', 'Vitamin', 2, 0, 'card', 'paid', 12);
 
 -- --------------------------------------------------------
 

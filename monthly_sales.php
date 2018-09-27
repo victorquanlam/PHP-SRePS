@@ -21,59 +21,68 @@ for ($i=0; $i < 12; $i++)
 while($row = $result->fetch_assoc())
 {
 	$month = date("n",strtotime($row["sale_date"]));
-	switch ($month) {
+	if (is_numeric($row["product_price"])) 
+	{
+		if (is_numeric($row["total_amount"])) 
+		{
+			$tranval = $row["product_price"]*$row["total_amount"];
+			switch ($month) {
 		case 1:
-			$totalmonth[0] += $row["total_amount"];
+			$totalmonth[0] += $tranval;
 			$numbermonth[0] ++;
 			break;
 		case 2:
-			$totalmonth[1] += $row["total_amount"];
+			$totalmonth[1] += $tranval;
 			$numbermonth[1] ++;
 			break;
 		case 3:
-			$totalmonth[2] += $row["total_amount"];
+			$totalmonth[2] += $$tranval;
 			$numbermonth[2] ++;
 			break;
 		case 4:
-			$totalmonth[3] += $row["total_amount"];
+			$totalmonth[3] += $tranval;
 			$numbermonth[3] ++;
 			break;
 		case 5:
-			$totalmonth[4] += $row["total_amount"];
+			$totalmonth[4] += $tranval;
 			$numbermonth[4] ++;
 			break;
 		case 6:
-			$totalmonth[5] += $row["total_amount"];
+			$totalmonth[5] += $tranval;
 			$numbermonth[5] ++;
 			break;
 		case 7:
-			$totalmonth[6] += $row["total_amount"];
+			$totalmonth[6] += $tranval;
 			$numbermonth[6] ++;
 			break;
 		case 8:
-			$totalmonth[7] += $row["total_amount"];
+			$totalmonth[7] += $tranval;
 			$numbermonth[7] ++;
 			break;
 		case 9:
-			$totalmonth[8] += $row["total_amount"];
+			$totalmonth[8] += $tranval;
 			$numbermonth[8] ++;
 			break;
 		case 10:
-			$totalmonth[9] += $row["total_amount"];
+			$totalmonth[9] += $tranval;
 			$numbermonth[9] ++;
 			break;
 		case 11:
-			$totalmonth[10] += $row["total_amount"];
+			$totalmonth[10] += $tranval;
 			$numbermonth[10] ++;
 			break;
 		case 12:
-			$totalmonth[11] += $row["total_amount"];
+			$totalmonth[11] += $tranval;
 			$numbermonth[11] ++;
 			break;								
 		default:
 			
 			break;
 	}
+		}
+	}
+
+	
 }
 echo "<h2>Monthly Sales Report</h2><hr \>";
 echo"<table border='1em' class='table table-bordered table-striped table-hover'>";

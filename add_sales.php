@@ -6,8 +6,6 @@
 <form id="addsalesform" method="post" action="insertsale.php" validate="validate">
     <fieldset id="saleinfo">
         <legend>Add Sale: </legend>
-        <p><label for="saleid">Sale ID: </label>
-        <input type="text" name="saleid" id="saleid" maxlength="50" required="required" value="100001"/></p>
         <p><label for="saledate">Sale Date: </label>
         <input type="date" name="saledate" id="saledate" maxlength="50" required="required"/></p>
         <p><label for="productname">Product Name: </label>

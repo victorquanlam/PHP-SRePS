@@ -5,8 +5,8 @@
 
 <?php
 
-$sql="INSERT INTO sale (sale_id, sale_date, sale_name, product_price, total_amount, discount, payment_type, payment_status)
-    VALUES ('$_POST[saleid]', '$_POST[saledate]', '$_POST[productname]', '$_POST[price]', '$_POST[quantity]', '$_POST[discount]', '$_POST[paymenttype]', '$_POST[paymentstatus]')";
+$sql="INSERT INTO sale (sale_date, sale_name, product_price, total_amount, discount, payment_type, payment_status)
+    VALUES ('$_POST[saledate]', '$_POST[productname]', '$_POST[price]', '$_POST[quantity]', '$_POST[discount]', '$_POST[paymenttype]', '$_POST[paymentstatus]')";
 
 if ($connect->query($sql) === TRUE) {
     echo "New sale added successfully";

@@ -22,6 +22,7 @@ echo"
   <td>Sale ID</td>
   <td>Date</td>
   <td>Name</td>
+  <td>Product ID</td>
   <td>Amount</td>
   <td>Discount</td>
   <td>Payment Type</td>
@@ -36,11 +37,12 @@ while($row = $result->fetch_assoc())
         <td>".$row["sale_id"]."</td>
         <td>".$row["sale_date"]."</td>
         <td>".$row["sale_name"]."</td>
-        <td>".$row["total_amount"]."</td>
+        <td>".$row["product_id"]."</td>
+        <td>".$row["quantity"]."</td>
         <td>".$row["discount"]."</td>
         <td>".$row["payment_type"]."</td>
         <td>".$row["payment_status"]."</td>
-        <td>".$row["product_price"]."</td>
+        <td>".$row["total"]."</td>
         <td><a href='edit.php?id=".$row["sale_id"]."' target = '_blank'/a>Edit</td>
     </tr>";
 }

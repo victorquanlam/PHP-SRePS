@@ -34,6 +34,7 @@
       <li><a href="stock.php">Stock</a></li>
       <li><a href="brand.php">Brand</a></li>
       <li><a href="report.php">Report</a></li>
+      <li><a href="predictsale.php">Predict</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>

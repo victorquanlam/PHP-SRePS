@@ -4,12 +4,15 @@ require_once("includes/header.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
   $id = $_POST["sale_id"];
-  $total_amount = $_POST["total_amount"];
   $discount = $_POST["discount"];
   $payment_type = $_POST["payment_type"];
   $payment_status = $_POST["payment_status"];
-  $price = $_POST["product_price"];
-  mysqli_query($connect, "UPDATE sale SET total_amount = '$total_amount', discount ='$discount', payment_type = '$payment_type', payment_status = '$payment_status', product_price='$price' WHERE sale_id='$id'");
+  $quantity = $_POST["quantity"];
+  $sql1 = "SELECT * FROM `product` where product_name = '$_POST[product_name]'";
+  $result1 = $connect->query($sql1);
+  $row1 = $result1->fetch_assoc();
+  $total = $row1["price"] * $quantity;
+  mysqli_query($connect, "UPDATE sale SET quantity = '$quantity', discount ='$discount', payment_type = '$payment_type', total = '$total', payment_status = '$payment_status', product_id='$row1[product_id]' WHERE sale_id='$id'");
 }
 $sql = "SELECT * FROM `sale`";
 $result = $connect->query($sql);

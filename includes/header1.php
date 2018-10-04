@@ -19,7 +19,6 @@
 
   <script type="text/javascript" src="assets/jqueryiu/jquery-ui.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </head>
 
@@ -44,5 +43,5 @@
   </div>
 </nav>
 
-<div id="main" class="container">
+<div id="main" >
 

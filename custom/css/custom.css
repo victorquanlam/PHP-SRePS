@@ -106,3 +106,8 @@ input[readonly]{
 .button_primary:hover{
 	background-color: #28ad63;
 }
+
+.container{
+    max-width:980px;
+    margin:0 auto;/*make it centered*/
+}

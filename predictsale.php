@@ -30,22 +30,29 @@ if($selected_product!="")
     'type' => 'number'
   )
   );
-  $total_month= 0;
+ 
   $total_units= 0;
+  $past_months= array();
+  array_push($past_months,date('F', strtotime(date('Y-m'))),date('F', strtotime(date('Y-m')." -1 month")),date('F', strtotime(date('Y-m')." -2 month")));
+  
   while($row = $result1->fetch_assoc())
   {
+    
     $sub_array = array();
     $month = explode(".",$row["month_name"]);
+   
+    if(in_array($month[0],$past_months)){
     $sub_array[] = array("v" => $month);
     $sub_array[] = array("v" => $row["total_units"]);
     $rows[] = array("c" => $sub_array);
-    $total_month++;
+
     $total_units+=$row["total_units"];
+    }
   }
   $sub_array = array();
-  $month = explode(".","October");
+  $month = explode(".",date('F', strtotime(date('Y-m')." +1 month")));
   $sub_array[] = array("v" => $month);
-  $predict_unit = (int)($total_units/$total_month);
+  $predict_unit = (int)($total_units/3);
   $sub_array[] = array("v" => $predict_unit);
   $rows[] = array("c" => $sub_array);
   
@@ -77,6 +84,7 @@ $result = $connect->query($sql);
     var chart = new google.visualization.LineChart(document.getElementById('line_chart'));
 
     chart.draw(data, options);
+
    }
   </script>
   <style>
@@ -93,6 +101,16 @@ $result = $connect->query($sql);
     <form method="post" action="predictsale.php">
     <input type="submit" id="submit" value="Predict" style="float: right; margin: auto; margin-right: 380px; font-size: 13px; "/>
     <div style="overflow: hidden; padding-right: .5em;">
+      <?php   
+
+
+        echo "Current Month: ".date('F', strtotime(date('Y-m')));
+
+
+
+
+
+                        ?>
     <label for="product_name" class="edit_label">Product Name:</label>
     <select name="product_name" id="product_name">
       <?php while($row = mysqli_fetch_array($result)):;?>
@@ -102,6 +120,7 @@ $result = $connect->query($sql);
     </div>
     <div class="page-wrapper">
       <br />
+
       <h2 align="center">Prediction</h2>
       <div id="line_chart" style="width: 100%; height: 500px"></div>
       </div>

@@ -3,16 +3,24 @@ require_once("action/dp_connect.php");
 require_once("includes/header.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-  $id = $_POST["sale_id"];
-  $discount = $_POST["discount"];
-  $payment_type = $_POST["payment_type"];
-  $payment_status = $_POST["payment_status"];
-  $quantity = $_POST["quantity"];
-  $sql1 = "SELECT * FROM `product` where product_name = '$_POST[product_name]'";
-  $result1 = $connect->query($sql1);
-  $row1 = $result1->fetch_assoc();
-  $total = $row1["price"] * $quantity;
-  mysqli_query($connect, "UPDATE sale SET quantity = '$quantity', discount ='$discount', payment_type = '$payment_type', total = '$total', payment_status = '$payment_status', product_id='$row1[product_id]' WHERE sale_id='$id'");
+  if($_POST["page_from"] == "edit")
+  {
+    $id = $_POST["sale_id"];
+    $discount = $_POST["discount"];
+    $payment_type = $_POST["payment_type"];
+    $payment_status = $_POST["payment_status"];
+    $quantity = $_POST["quantity"];
+    $sql1 = "SELECT * FROM `product` where product_name = '$_POST[product_name]'";
+    $result1 = $connect->query($sql1);
+    $row1 = $result1->fetch_assoc();
+    $total = $row1["price"] * $quantity;
+    mysqli_query($connect, "UPDATE sale SET quantity = '$quantity', discount ='$discount', payment_type = '$payment_type', total = '$total', payment_status = '$payment_status', product_id='$row1[product_id]' WHERE sale_id='$id'");
+  }
+  else if($_POST["page_from"] == "remove")
+  {
+    $id = $_POST["sale_id"];
+    mysqli_query($connect,"DELETE FROM sale WHERE sale_id = '$id'");
+  }
 }
 $sql = "SELECT * FROM `sale`";
 $result = $connect->query($sql);
@@ -46,7 +54,9 @@ while($row = $result->fetch_assoc())
         <td>".$row["payment_type"]."</td>
         <td>".$row["payment_status"]."</td>
         <td>".$row["total"]."</td>
-        <td><a href='edit.php?id=".$row["sale_id"]."' target = '_blank'/a>Edit</td>
+        <td><a href='edit.php?id=".$row["sale_id"]."'>Edit</a> /
+        <a href='removesale.php?id=".$row["sale_id"]."'>Remove</a>
+        </td>
     </tr>";
 }
 echo"</table>";

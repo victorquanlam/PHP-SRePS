@@ -64,7 +64,8 @@ $result1 = $connect->query($sql1);
     </div>
     <div>
       <input type="submit" id="submit" value="Submit" />
-  	  <input type="reset" id="cancel" value="Cancel" />
+      <input type="hidden" name="page_from" value="edit">
+  	  <input type="button" id="cancel" value="Cancel" onClick="document.location.href='sales.php'" />
     </div>
   </fieldset>
   </form>

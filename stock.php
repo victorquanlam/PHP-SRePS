@@ -3,20 +3,26 @@ require_once("action/dp_connect.php");
 require_once("includes/header.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    $product_name = $_POST["product_name"];
     $quantity = $_POST["quantity"];
-    $price = $_POST["price"];
+    $product_name = $_POST["product_name"];
+    $query1 = "SELECT * FROM product WHERE product_name = '$product_name'";
+    $result2 = $connect->query($query1);
+    $row = $result2->fetch_assoc();
+    $product_id = $row["product_id"];
+    $total = $quantity * $row["price"];
     if( $_POST["page_form"]== "add")
     {
-        $query = "INSERT INTO `order_stock` (`product_name`, `quantity`, `price`) VALUES ('$product_name', '$quantity', '$price')";
+        $query2 = "INSERT INTO `order_stock`(`product_id`, `quantity`, `total`) VALUES ('$product_id','$quantity','$total')";
+        $connect->query($query2);
     }
     else if($_POST["page_form"] == "edit")
     {
         $orders_stock_id = $_POST["orders_stock_id"];
-        $query = "UPDATE  order_stock SET product_name = '$product_name', quantity = '$quantity',price = '$price' WHERE orders_stock_id = '$orders_stock_id'";
+        $query = "UPDATE  order_stock SET product_id = '$product_id', quantity = '$quantity',total = '$total' WHERE orders_stock_id = '$orders_stock_id'";
+        mysqli_query($connect, $query);
     }
 
-    mysqli_query($connect, $query);
+    
 }
 $sql = "SELECT * FROM `order_stock`";
 $result = $connect->query($sql);
@@ -28,20 +34,27 @@ echo"<table border='1em' class='table table-bordered table-striped table-hover'>
 echo"
 <tr>
   <td>Stock ID</td>
+  <td>Product ID</td>
   <td>Product Name</td>
   <td>Quantity</td>
-  <td>Price</td>
+  <td>Total</td>
   <td>Action</td>
 </tr>";
-while($row = $result->fetch_assoc())
+while($row3 = $result->fetch_assoc())
 {
     echo"
     <tr>
-        <td>".$row["orders_stock_id"]."</td>
-        <td>".$row["product_name"]."</td>
-        <td>".$row["quantity"]."</td>
-        <td>".$row["price"]."</td>
-        <td><a href='editstock.php?id=".$row["orders_stock_id"]."' target = '_blank'/a>Edit</td>
+        <td>".$row3["orders_stock_id"]."</td>
+        <td>".$row3["product_id"]."</td>
+        <td>";
+        $product_id = $row3["product_id"];
+        $query2 = "SELECT * FROM product WHERE product_id = '$product_id '";
+        $result3 = $connect->query($query2);
+        $row1 = $result3->fetch_assoc();
+        echo $row1["product_name"];
+        echo "</td><td>".$row3["quantity"]."</td>
+        <td>".$row3["total"]."</td>
+        <td><a href='editstock.php?id=".$row3["orders_stock_id"]."''/a>Edit</td>
     </tr>";
 }
 echo"</table>";

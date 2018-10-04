@@ -16,11 +16,11 @@ for ($i=0; $i < 12; $i++)
 while($row = $result->fetch_assoc())
 {
 	$month = date("n",strtotime($row["sale_date"]));
-	if (is_numeric($row["product_price"])) 
+	if (is_numeric($row["total"])) 
 	{
-		if (is_numeric($row["total_amount"])) 
+		if (is_numeric($row["quantity"])) 
 		{
-			$tranval = $row["product_price"]*$row["total_amount"];
+			$tranval = $row["total"]*$row["quantity"];
 			switch ($month) {
 		case 1:
 			$totalmonth[0] += $tranval;

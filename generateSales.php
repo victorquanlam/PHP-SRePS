@@ -1,15 +1,15 @@
 <?php
 require_once("action/dp_connect.php");
 require_once("includes/header.php");
-$begin = new DateTime('2018-06-01');
-$end = new DateTime('2018-10-01');
+$begin = new DateTime('2018-01-01');
+$end = new DateTime('2018-10-17');
 $interval = DateInterval::createFromDateString('1 day');
 $period = new DatePeriod($begin, $interval, $end);
 $names = array('Sam William','Michael Smith','James Johnson');
 $payment_types = array('Credit Card','Cash','Eftpos');
 foreach ($period as $dt) 
 {
-  $num_sales = rand(2,5);
+  $num_sales = rand(2,4);
   for($i = 0; $i < $num_sales; $i++)
   {
     $name = $names[rand(0,2)];

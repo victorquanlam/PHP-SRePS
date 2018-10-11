@@ -16,11 +16,11 @@ for ($i=0; $i < 12; $i++)
 while($row = $result->fetch_assoc())
 {
 	$month = date("n",strtotime($row["sale_date"]));
-	if (is_numeric($row["quantity"])) 
+	if (is_numeric($row["total"])) 
 	{
-		if (is_numeric($row["total"])) 
+		if (is_numeric($row["quantity"])) 
 		{
-			$tranval = $row["quantity"]*$row["total"];
+			$tranval = $row["total"]*$row["quantity"];
 			switch ($month) {
 		case 1:
 			$totalmonth[0] += $tranval;
@@ -31,7 +31,7 @@ while($row = $result->fetch_assoc())
 			$numbermonth[1] ++;
 			break;
 		case 3:
-			$totalmonth[2] += $tranval;
+			$totalmonth[2] += $$tranval;
 			$numbermonth[2] ++;
 			break;
 		case 4:
@@ -78,7 +78,7 @@ while($row = $result->fetch_assoc())
 	}
 	
 }
-echo "<h2>2018 Sales Report</h2><hr \>";
+echo "<h2>Monthly Sales Report</h2><hr \>";
 echo"<table border='1em' class='table table-bordered table-striped table-hover'>";
 echo"
 <tr>
@@ -88,33 +88,30 @@ echo"
 </tr>";
 for ($i=1; $i < 13; $i++) 
 { 
-	$monthName = date("F", strtotime("2018-".$i."-01"));
 	echo"
     <tr>
-        <td>".$monthName."</td>
+        <td>".$i."</td>
         <td>".$numbermonth[$i-1]."</td>
-        <td>"."$".$totalmonth[$i-1]."</td>
+        <td>".$totalmonth[$i-1]."</td>
     </tr>";
 }
 echo"</table>";
-if (isset($_GET['csvy'])) 
+if (isset($_GET['csv'])) 
 {
 	
 	ob_end_clean();
 	header('Content-Type: text/csv; charset=utf-8');
-	header('Content-Disposition: attachment; filename=yearly_sales_report.csv');
+	header('Content-Disposition: attachment; filename=monthly_sales_2018.csv');
 	$output = fopen('php://output', 'w');
 	$months = array('Month','January','February','March','April','May','June','July','August','September','October','November','December');
-	$title = array("2018 Sales Report");
 	array_unshift($totalmonth, 'Total Sales Amount');
 	array_unshift($numbermonth, 'Number of Sales');
-	fputcsv($output, $title);
 	fputcsv($output, $months);
 	fputcsv($output, $numbermonth);
 	fputcsv($output, $totalmonth);
 	exit();
 }
-echo "<a href='yearly_sales.php?csvy=true'>Export to csv</a>";
+echo "<a href='monthly_sales.php?csv=true'>Export to csv</a>";
 ?>
 
 <!--put your content hereeeeeeeeeeeeeee-->

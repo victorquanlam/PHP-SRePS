@@ -19,6 +19,7 @@ echo"
   <td>Sale ID</td>
   <td>Date</td>
   <td>Name</td>
+  <td>Product ID</td>
   <td>Amount</td>
   <td>Discount</td>
   <td>Payment Type</td>
@@ -37,13 +38,14 @@ while($row = $result->fetch_assoc())
 			echo"
    			<tr>
        		<td>".$row["sale_id"]."</td>
-       		<td>".$row["sale_date"]."</td>
+        	<td>".$row["sale_date"]."</td>
         	<td>".$row["sale_name"]."</td>
-        	<td>".$row["total_amount"]."</td>
+        	<td>".$row["product_id"]."</td>
+       		<td>".$row["quantity"]."</td>
         	<td>".$row["discount"]."</td>
         	<td>".$row["payment_type"]."</td>
         	<td>".$row["payment_status"]."</td>
-        	<td>".$row["product_price"]."</td>
+        	<td>".$row["total"]."</td>
     		</tr>";
     		#$monthresults[$i] = array($row["sale_id"],$row["sale_date"],$row["sale_name"],$row["total_amount"],$row["discount"],$row["payment_type"],$row["payment_status"],$row["product_price"]);
     		#echo "$monthresults[0][0]";

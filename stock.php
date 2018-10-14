@@ -33,18 +33,15 @@ echo "<hr \>";
 echo"<table border='1em' class='table table-bordered table-striped table-hover'>";
 echo"
 <tr>
-  <td>Stock ID</td>
   <td>Product ID</td>
   <td>Product Name</td>
   <td>Quantity</td>
-  <td>Total</td>
   <td>Action</td>
 </tr>";
 while($row3 = $result->fetch_assoc())
 {
     echo"
     <tr>
-        <td>".$row3["orders_stock_id"]."</td>
         <td>".$row3["product_id"]."</td>
         <td>";
         $product_id = $row3["product_id"];
@@ -53,7 +50,6 @@ while($row3 = $result->fetch_assoc())
         $row1 = $result3->fetch_assoc();
         echo $row1["product_name"];
         echo "</td><td>".$row3["quantity"]."</td>
-        <td>".$row3["total"]."</td>
         <td><a href='editstock.php?id=".$row3["orders_stock_id"]."''/a>Edit</td>
     </tr>";
 }

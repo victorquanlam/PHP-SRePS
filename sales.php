@@ -28,6 +28,8 @@ echo "<h2>Sales Records</h2><hr \>";
 echo '<a href="add_sales.php"><button>Add Sales</button></a>';
 echo '<a href="yearly_sales.php"><button>2018 Sales Report</button></a>';
 echo '<a href="sales_monthly.php"><button>Monthly Sales Reports</button></a>';
+echo '<a href="add_products.php"><button>Add Products</button></a>';
+echo '<a href="editproduct.php"><button>Edit Products</button></a>';
 echo"<table border='1em' class='table table-bordered table-striped table-hover'>";
 echo"
 <tr>

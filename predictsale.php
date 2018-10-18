@@ -98,6 +98,7 @@ $result = $connect->query($sql);
   <body>
     <h2>Predict Sale</h2>
     <hr \>
+    <a href="predictstock.php"><button>Stock Orders Prediction</button></a>
     <form method="post" action="predictsale.php">
     <input type="submit" id="submit" value="Predict" style="float: right; margin: auto; margin-right: 380px; font-size: 13px; "/>
     <div style="overflow: hidden; padding-right: .5em;">
